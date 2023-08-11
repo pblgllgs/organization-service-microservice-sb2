@@ -26,7 +26,12 @@ import java.time.LocalDateTime;
 public class Organization {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(
+            name = "organization_id_sequence",
+            sequenceName = "organization_id_sequence",
+            allocationSize = 1
+    )
     private Long id;
 
     @Column(
